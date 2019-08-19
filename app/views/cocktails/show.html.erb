@@ -1,0 +1,33 @@
+
+
+
+
+<div class="container">
+
+  <p id="notice"><%= notice %></p>
+
+  <p>
+  <strong>Name:</strong>
+  <%= @cocktail.name %>
+  </p>
+
+<p>
+  <strong>Ingredients:</strong>
+  <% @doses.each do |dose| %>
+  <%= dose.description %>
+  <%= dose.ingredient.name %>
+  <%= link_to 'Remove an ingredient', dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' } %> <i class="fa fa-trash destroy_dose"></i>
+  <% end %>
+
+
+
+</p>
+
+
+  <%= link_to 'Back', cocktails_path %>
+  <%= link_to 'Add an ingredient', new_cocktail_dose_path(@cocktail) %>
+
+
+
+
+</div>
